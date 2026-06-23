@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>4 Sons — A Sky, LLC company</title>
+  <meta name="description" content="4 Sons is the software studio of Sky, LLC — apps built by the Nio family." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="4 Sons — A Sky, LLC company" />
+  <meta property="og:description" content="The Nio family software studio, operated by Sky, LLC." />
+  <meta property="og:url" content="https://4sons.com/" />
+
+  <style>
+    :root {
+      --ink:    #16202b;
+      --muted:  #5a6b7b;
+      --paper:  #f7f4ee;
+      --card:   #ffffff;
+      --sky:    #2f7bd6;   /* nod to "Sky, LLC" */
+      --line:   #e4ddd1;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    header { padding: 40px 0 8px; }
+    .brand { display: flex; align-items: baseline; gap: 14px; }
+    .mark {
+      font-weight: 800; font-size: 28px; letter-spacing: -0.02em;
+    }
+    .mark .four { color: var(--sky); }
+    .kicker { color: var(--muted); font-size: 14px; }
+
+    .hero { padding: 56px 0 40px; }
+    h1 {
+      font-size: clamp(32px, 6vw, 52px);
+      line-height: 1.08; letter-spacing: -0.03em;
+      margin: 0 0 18px; font-weight: 800;
+    }
+    .lede { font-size: 19px; color: var(--muted); max-width: 56ch; margin: 0; }
+
+    .grid { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; margin: 8px 0 48px; }
+    @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+    .card {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 14px; padding: 22px;
+    }
+    .card h3 { margin: 0 0 6px; font-size: 16px; }
+    .card p { margin: 0; color: var(--muted); font-size: 15px; }
+
+    .contact { padding: 8px 0 56px; }
+    .contact a {
+      color: var(--sky); text-decoration: none; font-weight: 600;
+    }
+    .contact a:hover { text-decoration: underline; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 56px; color: var(--muted); font-size: 14px;
+    }
+    footer strong { color: var(--ink); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <span class="mark"><span class="four">4</span> Sons</span>
+        <span class="kicker">a Sky,&nbsp;LLC company</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>The Nio family software studio.</h1>
+        <p class="lede">
+          4&nbsp;Sons is the app studio of <strong>Sky,&nbsp;LLC</strong> — a small
+          family-run company where we design, build, and ship software together.
+        </p>
+      </section>
+
+      <section class="grid" aria-label="What we do">
+        <div class="card">
+          <h3>We build apps</h3>
+          <p>Native iOS and web apps, designed and developed in-house under the Sky,&nbsp;LLC umbrella.</p>
+        </div>
+        <div class="card">
+          <h3>A family workshop</h3>
+          <p>The next generation learns to build real, published software — mentored, hands-on.</p>
+        </div>
+        <div class="card">
+          <h3>Published as Sky,&nbsp;LLC</h3>
+          <p>Everything we release ships under our company on the App&nbsp;Store.</p>
+        </div>
+        <div class="card">
+          <h3>Parenting, simplified</h3>
+          <p>Our earlier project — fast, no-nonsense parenting help.
+            <a href="https://4sons910730432.wordpress.com/" style="color:var(--sky);text-decoration:none;font-weight:600;">Read the blog&nbsp;&rarr;</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="contact">
+        <p>Get in touch: <a href="mailto:hello@4sons.com">hello@4sons.com</a></p>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        <strong>4sons.com</strong> is operated by <strong>Sky,&nbsp;LLC</strong>.<br />
+        &copy; 2026 Sky,&nbsp;LLC. All rights reserved.
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
