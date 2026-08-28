@@ -1,0 +1,23 @@
+# The front door for 4sons.com: landing from ./site, sections proxied by path (see worker/routes.js).
+name = "4sons-com-front-door"
+main = "worker/index.js"
+compatibility_date = "2026-08-01"
+workers_dev = true
+
+# Once the 4sons.com zone is on Cloudflare, uncomment: the custom domain creates DNS + certificate.
+# routes = [
+#   { pattern = "4sons.com", custom_domain = true },
+#   { pattern = "www.4sons.com", custom_domain = true },
+# ]
+
+# THE SWITCH: which sections are published, comma-separated (section names from
+# worker/routes.js). Edit in the Cloudflare dashboard (Workers & Pages > this Worker >
+# Settings > Variables and Secrets > SECTIONS_ENABLED > Edit > Deploy) - no code deploy needed.
+# A section that is not listed answers "not published" and is absent from the landing.
+[vars]
+SECTIONS_ENABLED = ""
+
+[assets]
+directory = "site"
+not_found_handling = "404-page"
+run_worker_first = ["/david/*", "/son2/*", "/son3/*", "/son4/*", "/david", "/son2", "/son3", "/son4"]

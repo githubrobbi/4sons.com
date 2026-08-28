@@ -1,0 +1,12 @@
+{
+  "name": "4sons-com-front-door",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test worker/",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

@@ -111,6 +111,11 @@
         </div>
       </section>
 
+      <section class="grid" aria-label="The four sons">
+        <h2>The four sons</h2>
+        <p id="sections">Loading...</p>
+      </section>
+
       <section class="contact">
         <p>Get in touch: <a href="mailto:hello@4sons.com">hello@4sons.com</a></p>
       </section>
@@ -123,5 +128,12 @@
       </p>
     </footer>
   </div>
+<script>
+fetch("/sections.json").then((r) => r.json()).then((list) => {
+  const box = document.getElementById("sections"); box.innerHTML = "";
+  if (!list.length) { box.textContent = "Nothing published yet."; return; }
+  for (const s of list) { const a = document.createElement("a"); a.href = s.path; a.textContent = s.title; a.style.marginRight = "1rem"; box.appendChild(a); }
+}).catch(() => {});
+</script>
 </body>
 </html>
