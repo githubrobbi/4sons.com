@@ -111,9 +111,31 @@
         </div>
       </section>
 
-      <section class="grid" aria-label="The four sons">
-        <h2>The four sons</h2>
-        <p id="sections">Loading...</p>
+      <section aria-label="The four sons">
+        <h2 style="margin:0 0 6px;font-size:22px;letter-spacing:-0.02em">The four sons</h2>
+        <p class="lede" style="font-size:16px;margin:0 0 18px">Each brother has his own corner of this site, published from his own repository when he is ready.</p>
+        <div class="grid" id="sons">
+          <div class="card" data-section="david">
+            <h3>David</h3>
+            <p>Data scientist and app builder. Ships iMessage games under his own name and keeps the family's numbers honest.</p>
+            <p class="links"><a href="/david/">david &rarr;</a> <a href="https://github.com/githubrobbi/david">repo</a></p>
+          </div>
+          <div class="card" data-section="joni">
+            <h3>Joni</h3>
+            <p>The traveller of the four. His page arrives when he does.</p>
+            <p class="links"><span class="soon">coming soon</span></p>
+          </div>
+          <div class="card" data-section="benji">
+            <h3>Benji</h3>
+            <p>Builder in the making. Page in preparation.</p>
+            <p class="links"><span class="soon">coming soon</span></p>
+          </div>
+          <div class="card" data-section="sami">
+            <h3>Sami</h3>
+            <p>The youngest, and the one most likely to rewrite this page. Page in preparation.</p>
+            <p class="links"><span class="soon">coming soon</span></p>
+          </div>
+        </div>
       </section>
 
       <section class="contact">
@@ -130,9 +152,12 @@
   </div>
 <script>
 fetch("/sections.json").then((r) => r.json()).then((list) => {
-  const box = document.getElementById("sections"); box.innerHTML = "";
-  if (!list.length) { box.textContent = "Nothing published yet."; return; }
-  for (const s of list) { const a = document.createElement("a"); a.href = s.path; a.textContent = s.title; a.style.marginRight = "1rem"; box.appendChild(a); }
+  const live = new Set(list.map((s) => s.path.replace(/\//g, "")));
+  for (const card of document.querySelectorAll("#sons .card")) {
+    const name = card.dataset.section, links = card.querySelector(".links");
+    if (live.has(name)) { links.innerHTML = `<a href="/${name}/">${name} &rarr;</a> ` + (links.querySelector("a[href*=github]")?.outerHTML ?? ""); }
+    else if (!links.querySelector(".soon")) { links.innerHTML = '<span class="soon">coming soon</span>'; }
+  }
 }).catch(() => {});
 </script>
 </body>

@@ -1,16 +1,16 @@
 // The routing table: first path segment -> Cloudflare Pages project (its *.pages.dev origin).
 // Add a section: one line here, one Pages project, one repo owned by whoever writes it.
 export const ROUTES = {
-  "david": "4sons-david",
-  "son2": "4sons-son2",
-  "son3": "4sons-son3",
-  "son4": "4sons-son4"
+  "david": "4sons-david-site",
+  "joni": "4sons-joni-site",
+  "benji": "4sons-benji-site",
+  "sami": "4sons-sami-site"
 };
 // Aliases 301 to their target section.
 export const ALIASES = {};
 
 // Section titles for the landing page's list (served at /sections.json).
-export const TITLES = {"david": "David", "son2": "Son 2", "son3": "Son 3", "son4": "Son 4"};
+export const TITLES = {"david": "David", "joni": "Joni", "benji": "Benji", "sami": "Sami"};
 
 // The switch: `enabled` is the set of section names currently published
 // (the Worker reads it from the SECTIONS_ENABLED variable, editable in the
