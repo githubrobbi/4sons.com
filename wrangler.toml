@@ -15,7 +15,7 @@ routes = [
 # Settings > Variables and Secrets > SECTIONS_ENABLED > Edit > Deploy) - no code deploy needed.
 # A section that is not listed answers "not published" and is absent from the landing.
 [vars]
-SECTIONS_ENABLED = "david"
+SECTIONS_ENABLED = "david,joni"
 
 [assets]
 directory = "site"
