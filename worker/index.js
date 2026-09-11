@@ -21,10 +21,17 @@ export default {
         return Response.redirect(url.origin + url.pathname + "/" + url.search, 301);
       }
       const origin = `https://${route.project}.pages.dev${route.rest}${url.search}`;
-      const upstream = await fetch(origin, { method: request.method, headers: { accept: request.headers.get("accept") ?? "*/*" }, cf: { cacheTtl: 300 } });
-      const headers = new Headers(upstream.headers);
-      headers.delete("set-cookie");
-      return new Response(upstream.body, { status: upstream.status, headers });
+      // Locked sections: the Pages origin sits behind Cloudflare Access too, so the Worker
+      // identifies itself with a service token (secrets ACCESS_CLIENT_ID / ACCESS_CLIENT_SECRET).
+      const headers = { accept: request.headers.get("accept") ?? "*/*" };
+      if (env.ACCESS_CLIENT_ID && env.ACCESS_CLIENT_SECRET) {
+        headers["CF-Access-Client-Id"] = env.ACCESS_CLIENT_ID;
+        headers["CF-Access-Client-Secret"] = env.ACCESS_CLIENT_SECRET;
+      }
+      const upstream = await fetch(origin, { method: request.method, headers, cf: { cacheTtl: 300 } });
+      const out = new Headers(upstream.headers);
+      out.delete("set-cookie");
+      return new Response(upstream.body, { status: upstream.status, headers: out });
     }
     if (route.kind === "landing" || route.kind === "unknown") return env.ASSETS.fetch(request);
     return new Response("not found", { status: 404 });
